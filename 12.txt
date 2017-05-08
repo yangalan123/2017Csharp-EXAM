@@ -1,0 +1,36 @@
+1.a
+2.a
+3.c
+
+
+7.c
+8.
+9.C
+10.C
+11.D
+12.有疑问......3)做法行不通
+
+
+1.T
+2.T
+5.T
+6.F
+7.T
+8.F
+
+1.this
+2.resume
+3.static
+5.indexer
+6.assembly
+7.generic
+8.double sum = 0;
+  foreach (double x in numbers)
+    sum+=x;
+11. Fruit
+    LittleApple
+12.True
+   False
+   3/4
+13.if (OnNew!=null)
+     OnNew();

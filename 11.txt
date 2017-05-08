@@ -1,0 +1,43 @@
+1.B
+2.B
+3.A //[]秩说明符不能出现在变量标识符后
+4.C
+5.B
+6.D
+7.C
+8.D
+9.d
+10.C
+11.a
+12.c
+13.D
+14（看不清题）
+15.D（匿名方法）
+
+1.T
+2.F
+3.T
+4.T
+5.F
+6.F
+7.F
+8.T(String类在C#中十分特殊，equals和==比较结果一致)
+9.F
+10.F
+
+1.num=Convert.ToInt32(s);
+2.static
+3.Exception
+4.this
+5.double sum =0;
+  foreach (double x in numbers)
+    sum+=x;
+
+6.Object
+7.boxing,unboxing
+
+9.x=1,y=0
+10.if (OnNew!=null)
+   OnNew();
+   //注意检查OnNew()(事件是否为空)
+

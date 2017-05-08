@@ -1,0 +1,13 @@
+(attribute没学....但是瞄了一眼应该是B（name+position）)
+
+const不能用static修饰
+
+An interface member is implemented or inherited from a base class
+
+In .NET Framework class library, all multithread application related classes are in which following namespace?
+ANS：System.Threading 
+
+struct的赋值拷贝不是拷贝引用！！！！
+（14年17题）
+
+Every enumeration type has an underlying type, which can be any integral type except char. The default underlying type of enumeration elements is int.

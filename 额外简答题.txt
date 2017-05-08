@@ -1,0 +1,9 @@
+2.	C# uses different modifiers to confine the data security. 
+          There are 5 different modifiers. 
+        Please list out each of them and explain their security level.
+
+3.	What are the difference between the value type and the reference type.
+
+4.      What is the difference between private assembly and public assembly?
+
+5.	why are properties often a good idea? Explain the reason why we use properties( Ù–‘)
