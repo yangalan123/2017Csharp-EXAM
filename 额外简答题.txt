@@ -7,3 +7,8 @@
 4.      What is the difference between private assembly and public assembly?
 
 5.	why are properties often a good idea? Explain the reason why we use properties( Ù–‘)
+Why are properties often a good idea?
+Allow read-only and write-only fields.
+Can validate a field when it is accessed.
+Interface and implementation of the data can differ.
+Substitute for fields in interfaces.

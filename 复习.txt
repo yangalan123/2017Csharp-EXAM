@@ -1,6 +1,57 @@
 (attribute没学....但是瞄了一眼应该是B（name+position）)
 
+If Add() should be overridden in a subclasses of MyClass 
+it must be declared as virtual 
+(although Add() is already implicitly virtual in IList).
+总之就是实现接口的时候如果还想让子类可以override必须显式声明virtual
+（大概和虚调用找不到原方法有关系）
+
+继承类和接口时，接口名写在类名后
+
+block的声明空间（declaration space）包括他其中nested的block，但是不包括和它不是nested关系的（它自己的声明空间属于外围）
+https://msdn.microsoft.com/en-us/library/aa691107(v=vs.71).aspx、
+
+params不参与函数签名，仅在ref和out不同也不行
+https://msdn.microsoft.com/en-us/library/aa691131(v=vs.71).aspx
+
+Delegate variables are first class objects: can be stored in a data structure, passed as a parameter, etc.
+If the multicast delegate has an out parameter, the parameter of the last call is returned. 
+ref parameters are passed through all methods.
+
+JAVA如何实现delegate类似物（接口充当delegate类型，找个类实现它（无法多路广播，对静态无效））
+委托不能声明static（CE），用法逻辑错误（复习PPT95），委托也可以加入静态方法（本质是函数签名不包括static/权限修饰符）
+
+抽象类的abstract成员必须不是私有的（interface默认成员方法public virtual）
+抽象类不能使用sealed修饰
+abstract不能修饰字段，但能修饰属性
+
 const不能用static修饰
+false: if a == null, a is T always returns false
+
+在try catch中，不指定exception类型，系统自动制定System.Exception
+
+B b = a as B;	// if (a is B)  b = (B)a; else b = null;
+	C c = a as C;
+
+	a = null;
+	c = a as C;	// c == null
+
+
+Fields must not be initialized at their declaration
+A constructor of a struct must initialize all fields.(调用了别的constructor)
+
+Abstract methods are implicitly virtual.
+
+for string ,equals()和==效果相同（但是小心其中一个为null，这时候不要对空的那个调用equals方法）
+抽象类不能是密封的或者静态的
+
+static constructor Must be parameterless (also for structs) and have no public or private modifier
+Used for initialization of static fields.
+
+destructor no public or private
+
+Properties work also with assignment operators.
+
 
 An interface member is implemented or inherited from a base class
 
@@ -10,4 +61,48 @@ ANS：System.Threading
 struct的赋值拷贝不是拷贝引用！！！！
 （14年17题）
 
-Every enumeration type has an underlying type, which can be any integral type except char. The default underlying type of enumeration elements is int.
+The visibility of names declared in namespaces, classes, structs and interfaces can be controlled by the modifiers 
+public, private, protected and internal.
+
+一个程序中甚至可以定义重名的namespace，但是用的是同一个命名空间
+https://msdn.microsoft.com/en-us/library/aa691107(v=vs.71).aspx
+
+indexers can be overloaded with different index types
+
+If == (<, <=, true) is overloaded, != (>=, >, false) must be overloaded as well.
+In order to overload && and ||, one must overload &, |, true and false
+true and false are called implicitly
+if (x) ...  	=> if (TriState.true(x)) ... 
+	x = x && y; 	=> x = TriState.false(x) ?  x : TriState.&(x, y);
+	x = x || y; 	=> x = TriState.true(x) ? x : TriState.|(x, y);
+
+
+Compiler prints a warning if == and != are overloaded, but Equals is not overridden.
+
+
+Conversion operators for user-defined types
+explicit
+     static explicit operator target_type { source_type identifier }
+implicit
+     static implicit operator target_type { source_type identifier }
+
+object copy = x.MemberwiseClone();	does a shallow copy (this method is protected!)
+
+
+Every enumeration type has an underlying type, which can be any integral type except char.
+ The default underlying type of enumeration elements is int.
+
+May contain methods, properties, indexers and events 
+(no fields, constants, constructors, destructors, operators, nested types).
+
+Interface members are implicitly public abstract (virtual).
+
+Interface members must not be static.
+
+Interfaces can inherit from other interfaces.
+
+if (condition false) Monitor.Wait(v);	make condition true; Monitor.Pulse(v);
+	Caution: When the thread awakes from Wait the condition might not be true any more (other threads might have run after Pulse)
+	Therefore Wait should be enclosed in a loop that checks for the continuation condition:
+		while (condition false) Monitor.Wait(v);
+
