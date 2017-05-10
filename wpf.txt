@@ -1,0 +1,14 @@
+
+WPF:XAML+CSharp
+GridViewColumn
+Header				// 列名
+DisplayMemberBinding=“{Binding X}”	// 绑定属性X
+(是属性不是字段)
+
+ListView数据绑定  ListView(itemsSource)
+ItemsSource：实现了接口IEnumerable的一个对象
+
+因此数据源可以是任何兼容的对象比如ArrayList，但若用普通的可枚举类型，数据源有变动时前端ListView容器无法感知以做出对应调整，因此官方推荐使用实现了接口INotifyCollectionChanged的ObservableCollection<T>模板类型
+
+
+再次强调：数据绑定的是对象的属性，不是字段！！
